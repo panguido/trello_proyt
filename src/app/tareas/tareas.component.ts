@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../usuario';
-import { UsuarioService } from '../usuario.service';
+import { Tarea } from '../tarea';
+import { TareaService } from '../tarea.service';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css']
+  selector: 'app-tarea',
+  templateUrl: './tareas.component.html',
+  styleUrls: ['./tareas.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class TareasComponent implements OnInit {
 
-  data: Usuario[];
-  current_usuario: Usuario;
+  data: Tarea[];
+  current_tarea: Tarea;
   crud_operation = { is_new: false, is_visible: false };
-  constructor(private service: UsuarioService) {
+  constructor(private service: TareaService) {
   }
 
   ngOnInit() {
     this.data = this.service.read();
-    this.current_usuario = new Usuario();
+    this.current_tarea = new Tarea();
   }
 
   new() {
-    this.current_usuario = new Usuario();
+    this.current_tarea = new Tarea();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
@@ -29,7 +29,7 @@ export class UsuarioComponent implements OnInit {
   edit(row) {
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = false;
-    this.current_usuario = row;
+    this.current_tarea = row;
   }
 
   delete(row) {
@@ -43,10 +43,10 @@ export class UsuarioComponent implements OnInit {
 
   save() {
     if (this.crud_operation.is_new) {
-      this.data.push(this.current_usuario);
+      this.data.push(this.current_tarea);
     }
     this.service.save(this.data);
-    this.current_usuario = new Usuario();
+    this.current_tarea = new Tarea();
     this.crud_operation.is_visible = false;
   }
 }

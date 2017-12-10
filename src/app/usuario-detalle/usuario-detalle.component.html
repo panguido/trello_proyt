@@ -1,3 +1,21 @@
-<p>
-  usuario-detalle works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{usuario.id}}
+    <a class="pull-right" routerLink="/usuario">
+      Back
+    </a>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+   
+      <tr>
+        <th>name</th>
+        <td>{{usuario.name}}</td>
+      </tr>
+      <tr>
+        <th>avatar</th>
+        <td>{{usuario.avatar}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

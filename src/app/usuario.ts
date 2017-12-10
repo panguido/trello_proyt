@@ -1,7 +1,7 @@
 export class Usuario {
-	 id: string;
+	 id: number;
   nombre: string;
-  avatar: number;
+  avatar: string;
   constructor() {
     // code...
   }
